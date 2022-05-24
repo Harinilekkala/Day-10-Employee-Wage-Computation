@@ -179,5 +179,46 @@ namespace EmployeeWagecmp
             }
             Console.WriteLine("Monthly salary of an Employee is:" + totalSalary);
         }
+
+        public void sixthusecase()
+        {
+            Console.WriteLine("-------------------------------------------------------");
+            Console.WriteLine(" Sixth  Use Case  ------------- Calculate wages tii a condition reaches working hrs or month");
+            Random value = new Random();
+            for (int i = totalWorkingDays; i < empWorkDaysPerMonth; i++)
+            {
+                if (i < empWorkDaysPerMonth && totalWorkingHours < 100)
+                {
+                    int randomCheck = value.Next(3);
+                    //Console.WriteLine("Generated random value is:" + randomCheck);
+
+                    switch (randomCheck)
+                    {
+                        case 1:// For Part Time
+                            {
+                                empHours = 4;
+                                break;
+                            }
+                        case 2: // For Full Time
+                            {
+                                empHours = 8;
+                                break;
+                            }
+                        default: // For Absent
+                            {
+                                empHours = 0;
+                                break;
+                            }
+                    }
+                    totalWorkingDays = i + 1;
+                    salaryForDay = empHours * empWagePerHour;
+                    totalSalary = totalSalary + salaryForDay;
+                    totalWorkingHours = totalWorkingHours + empHours;
+                }
+            }
+            Console.WriteLine("Total Working Days of an Employee is:" + totalWorkingDays);
+            Console.WriteLine("Total Working Hours of an Employee is:" + totalWorkingHours);
+            Console.WriteLine("Monthly salary of an Employee is:" + totalSalary);
+        }
     }
 }
