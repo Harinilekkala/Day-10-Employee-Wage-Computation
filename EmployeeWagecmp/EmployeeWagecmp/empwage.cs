@@ -15,7 +15,9 @@ namespace EmployeeWagecmp
         {
             Random value = new Random();
             int randomCheck = value.Next(2);
-            Console.WriteLine("Check Statusof Employee");
+            Console.WriteLine("First Use Case Check Statusof Employee");
+            Console.WriteLine("-------------------------------------------------------");
+            Console.WriteLine("Generated random value is:" + randomCheck);
 
             switch (randomCheck)
             {
@@ -37,6 +39,7 @@ namespace EmployeeWagecmp
             Random value = new Random();
             int randomCheck = value.Next(2);
             Console.WriteLine("Second Use case : Calculate the daily wage of employee");
+            Console.WriteLine("-------------------------------------------------------");
             switch (randomCheck)
             {
                 case 0:
@@ -57,5 +60,41 @@ namespace EmployeeWagecmp
                     }
             }
         }
+        public void AddPartTimeWage()
+        {
+            Random value = new Random();
+            int randomCheck = value.Next(3);
+            Console.WriteLine("Third Use Case Adding Part Time");
+            Console.WriteLine("-------------------------------------------------------");
+            switch (randomCheck)
+            {
+                case 1:
+                    {
+                        Console.WriteLine("Employee is working Part Time");
+                        empHours = 4;
+                        dailyWage = empHours * empWagePerHour;
+                        Console.WriteLine("Employee wage is:" + dailyWage);
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("Employee is working Full Time");
+                        empHours = 8;
+                        dailyWage = empHours * empWagePerHour;
+                        Console.WriteLine("Employee wage is:" + dailyWage);
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Employee is Absent");
+                        empHours = 0;
+                        dailyWage = empHours * empWagePerHour;
+                        Console.WriteLine("Employee wage is:" + dailyWage);
+                        break;
+                    }
+            }
+        }
+
+
     }
 }
