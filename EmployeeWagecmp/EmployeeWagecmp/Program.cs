@@ -11,6 +11,7 @@ namespace Employee
         {
             EmployeeWagecmp.empwage getMethod = new EmployeeWagecmp.empwage();
             getMethod.Attendance();
+            getMethod.DailyWage();
         }
     }
 }
