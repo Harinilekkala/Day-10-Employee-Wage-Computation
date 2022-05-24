@@ -9,7 +9,7 @@ namespace EmployeeWagecmp
     internal class empwage
     {
         int empHours, dailyWage, empWagePerHour = 20, empWorkDaysPerMonth = 20, salaryForDay;
-        int totalWorkingDays = 0, totalSalary = 0, totalWorkingHours = 0;
+        int totalWorkingDays = 0, totalSalary = 0, totalWorkingHours = 0, empWorkDaysMonth = 20;
         
         
         public void Attendance()
@@ -143,8 +143,41 @@ namespace EmployeeWagecmp
             Console.WriteLine("Total Working Hours of an Employee is:" + totalWorkingHours);
             Console.WriteLine("Monthly salary of an Employee is:" + totalSalary);
 
-
         }
+       
+        public void CalWagePerMnth()
+        {
+            Console.WriteLine("-------------------------------------------------------");
+            Console.WriteLine(" Fifth Use Case ------------- Calculating Calculating Wages for a Month");
+            Random value = new Random();
 
+            for (int days = 1; days < empWorkDaysMonth; days++)
+            {
+                int randomCheck = value.Next(3);
+                // Console.WriteLine("Generated random value is:" + randomCheck);
+
+                switch (randomCheck)
+                {
+                    case 1:// For Part Time
+                        {
+                            empHours = 4;
+                            break;
+                        }
+                    case 2: // For Full Time
+                        {
+                            empHours = 8;
+                            break;
+                        }
+                    default: // For Absent
+                        {
+                            empHours = 0;
+                            break;
+                        }
+                }
+                salaryForDay = empHours * empWagePerHour;
+                totalSalary = totalSalary + salaryForDay;
+            }
+            Console.WriteLine("Monthly salary of an Employee is:" + totalSalary);
+        }
     }
 }

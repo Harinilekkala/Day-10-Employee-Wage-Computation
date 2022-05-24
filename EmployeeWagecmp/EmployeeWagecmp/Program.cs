@@ -14,6 +14,7 @@ namespace Employee
             getMethod.DailyWage();
             getMethod.AddPartTimeWage();
             getMethod.switchcase();
+            getMethod.CalWagePerMnth();
         }
     }
 }
