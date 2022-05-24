@@ -13,6 +13,7 @@ namespace Employee
             getMethod.Attendance();
             getMethod.DailyWage();
             getMethod.AddPartTimeWage();
+            getMethod.switchcase();
         }
     }
 }

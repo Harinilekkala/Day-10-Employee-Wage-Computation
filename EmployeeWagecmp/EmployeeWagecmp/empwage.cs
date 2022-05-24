@@ -8,15 +8,17 @@ namespace EmployeeWagecmp
 {
     internal class empwage
     {
-        int empHours = 0;
-        int empWagePerHour = 20;
-        int dailyWage;
+        int empHours, dailyWage, empWagePerHour = 20, empWorkDaysPerMonth = 20, salaryForDay;
+        int totalWorkingDays = 0, totalSalary = 0, totalWorkingHours = 0;
+        
+        
         public void Attendance()
         {
+            Console.WriteLine("-------------------------------------------------------");
             Random value = new Random();
             int randomCheck = value.Next(2);
             Console.WriteLine("First Use Case Check Statusof Employee");
-            Console.WriteLine("-------------------------------------------------------");
+            
             Console.WriteLine("Generated random value is:" + randomCheck);
 
             switch (randomCheck)
@@ -36,10 +38,11 @@ namespace EmployeeWagecmp
 
         public void DailyWage()
         {
+            Console.WriteLine("-------------------------------------------------------");
             Random value = new Random();
             int randomCheck = value.Next(2);
             Console.WriteLine("Second Use case : Calculate the daily wage of employee");
-            Console.WriteLine("-------------------------------------------------------");
+            
             switch (randomCheck)
             {
                 case 0:
@@ -62,10 +65,11 @@ namespace EmployeeWagecmp
         }
         public void AddPartTimeWage()
         {
+            Console.WriteLine("-------------------------------------------------------");
             Random value = new Random();
             int randomCheck = value.Next(3);
             Console.WriteLine("Third Use Case Adding Part Time");
-            Console.WriteLine("-------------------------------------------------------");
+            
             switch (randomCheck)
             {
                 case 1:
@@ -95,6 +99,52 @@ namespace EmployeeWagecmp
             }
         }
 
+        public void switchcase()
+        {
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            Random value = new Random();
+            
+            Console.WriteLine("Forth Use Case Using Switch Case");
+            for (int i = totalWorkingDays; i < empWorkDaysPerMonth; i++)
+            {
+                if (i < empWorkDaysPerMonth && totalWorkingHours < 100)
+                {
+                    int randomCheck = value.Next(3);
+                    //Console.WriteLine("Generated random value is:" + randomCheck);
+
+                    switch (randomCheck)
+                    {
+                        case 1:
+                            {
+                                empHours = 4;
+                                break;
+                            }
+                        case 2:
+                            {
+                                empHours = 8;
+                                break;
+                            }
+                        default:
+                            {
+                                empHours = 0;
+                                break;
+                            }
+                    }
+                    totalWorkingDays = i + 1;
+                    salaryForDay = empHours * empWagePerHour;
+                    totalSalary = totalSalary + salaryForDay;
+                    totalWorkingHours = totalWorkingHours + empHours;
+                }
+            }
+            Console.WriteLine("Total Working Days of an Employee is:" + totalWorkingDays);
+            
+            Console.WriteLine("Total Working Hours of an Employee is:" + totalWorkingHours);
+            Console.WriteLine("Monthly salary of an Employee is:" + totalSalary);
+
+
+        }
 
     }
 }
