@@ -9,27 +9,41 @@ namespace EmployeeWagecmp
     internal class empwage
     {
 
+        public const int IS_PART_TIME = 1, IS_FULL_TIME = 2;
+
+        private string company;
+        private int empWagePerHour, empWorkDaysPerMonth, maxWorkingHours, totalSalary;
+
+        
+        public empwage(string company, int empWagePerHour, int empWorkDaysPerMonth, int maxWorkingHours)
+        {
+            this.company = company;
+            this.empWagePerHour = empWagePerHour;
+            this.empWorkDaysPerMonth = empWorkDaysPerMonth;
+            this.maxWorkingHours = maxWorkingHours;
+        }
+    
         public void WageForMonth()
         {
-            int empWagePerHour = 20, empWorkDaysPerMonth = 20, empHours, salaryForDay;
-            int totalWorkingDays = 0, totalSalary = 0, totalWorkingHours = 0;
+            int empHours, salaryForDay;
+            int totalWorkingDays = 0, totalWorkingHours = 0;
             Random value = new Random();
 
             for (int i = totalWorkingDays; i < empWorkDaysPerMonth; i++)
             {
-                if (i < empWorkDaysPerMonth && totalWorkingHours < 100)
+                if (i < this.empWorkDaysPerMonth && totalWorkingHours < this.maxWorkingHours)
                 {
                     int randomCheck = value.Next(3);
                     //Console.WriteLine("Generated random value is:" + randomCheck);
 
                     switch (randomCheck)
                     {
-                        case 1:// For Part Time
+                        case IS_PART_TIME:// For Part Time
                             {
                                 empHours = 4;
                                 break;
                             }
-                        case 2: // For Full Time
+                        case IS_FULL_TIME: // For Full Time
                             {
                                 empHours = 8;
                                 break;
@@ -48,21 +62,26 @@ namespace EmployeeWagecmp
             }
             Console.WriteLine("Total Working Days of an Employee is:" + totalWorkingDays);
             Console.WriteLine("Total Working Hours of an Employee is:" + totalWorkingHours);
-            Console.WriteLine("Monthly salary of an Employee is:" + totalSalary);
-
-
-
+            //Console.WriteLine("Monthly salary of an Employee in "+company+" is " + totalSalary);
+        }
+        public string toString()
+        {
+            return "Monthly salary of an Employee in " + this.company + " is " + this.totalSalary;
         }
 
-
-
-
-
-
-        }
 
 
     }
+
+
+
+
+
+
+}
+
+
+   
 
 
 
