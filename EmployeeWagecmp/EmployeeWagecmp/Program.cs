@@ -10,9 +10,10 @@ namespace Employee
         {
             {
                 EmployeeWagecmp.EmpWageBuilder run = new EmployeeWagecmp.EmpWageBuilder();
-                run.addtoArray("XYZ Company", 20, 100, 20);
-                run.addtoArray("ABC Company", 30, 80, 15);
+                run.addDetails("XYZ Company", 20, 100, 20);
+                run.addDetails("ABC Company", 30, 80, 15);
                 run.computeEmpWage();
+                Console.WriteLine("Total Employe Wage for ABC Company is = " + run.getTotalWage("ABC Company"));
             }
 
         }
