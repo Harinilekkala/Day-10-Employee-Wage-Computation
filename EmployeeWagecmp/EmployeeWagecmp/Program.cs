@@ -8,14 +8,12 @@ namespace Employee
     {
         public static void Main(String[] args)
         {
-            EmployeeWagecmp.empwage companyA = new EmployeeWagecmp.empwage("CompanyA", 20, 20, 100);
-            EmployeeWagecmp.empwage companyB = new EmployeeWagecmp.empwage("CompanyB", 40, 22, 95);
-        
-            companyA.WageForMonth();
-            Console.WriteLine(companyA.toString());
-            Console.WriteLine();
-            companyB.WageForMonth();
-            Console.WriteLine(companyB.toString());
+            {
+                EmployeeWagecmp.EmpWageBuilder run = new EmployeeWagecmp.EmpWageBuilder();
+                run.addtoArray("XYZ Company", 20, 100, 20);
+                run.addtoArray("ABC Company", 30, 80, 15);
+                run.computeEmpWage();
+            }
 
         }
     }

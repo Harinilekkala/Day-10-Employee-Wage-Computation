@@ -9,64 +9,26 @@ namespace EmployeeWagecmp
     internal class empwage
     {
 
-        public const int IS_PART_TIME = 1, IS_FULL_TIME = 2;
-
-        private string company;
-        private int empWagePerHour, empWorkDaysPerMonth, maxWorkingHours, totalSalary;
-
-        
-        public empwage(string company, int empWagePerHour, int empWorkDaysPerMonth, int maxWorkingHours)
+        public class CompanyEmpWage
         {
-            this.company = company;
-            this.empWagePerHour = empWagePerHour;
-            this.empWorkDaysPerMonth = empWorkDaysPerMonth;
-            this.maxWorkingHours = maxWorkingHours;
-        }
-    
-        public void WageForMonth()
-        {
-            int empHours, salaryForDay;
-            int totalWorkingDays = 0, totalWorkingHours = 0;
-            Random value = new Random();
+            public string company;
+            public int empWagePerHour, empWorkDaysPerMonth, maxWorkingHours, totalSalary;
 
-            for (int i = totalWorkingDays; i < empWorkDaysPerMonth; i++)
+            public CompanyEmpWage(string company, int empWagePerHour, int empWorkDaysPerMonth, int maxWorkingHours)
             {
-                if (i < this.empWorkDaysPerMonth && totalWorkingHours < this.maxWorkingHours)
-                {
-                    int randomCheck = value.Next(3);
-                    //Console.WriteLine("Generated random value is:" + randomCheck);
-
-                    switch (randomCheck)
-                    {
-                        case IS_PART_TIME:// For Part Time
-                            {
-                                empHours = 4;
-                                break;
-                            }
-                        case IS_FULL_TIME: // For Full Time
-                            {
-                                empHours = 8;
-                                break;
-                            }
-                        default: // For Absent
-                            {
-                                empHours = 0;
-                                break;
-                            }
-                    }
-                    totalWorkingDays = i + 1;
-                    salaryForDay = empHours * empWagePerHour;
-                    totalSalary = totalSalary + salaryForDay;
-                    totalWorkingHours = totalWorkingHours + empHours;
-                }
+                this.company = company;
+                this.empWagePerHour = empWagePerHour;
+                this.empWorkDaysPerMonth = empWorkDaysPerMonth;
+                this.maxWorkingHours = maxWorkingHours;
             }
-            Console.WriteLine("Total Working Days of an Employee is:" + totalWorkingDays);
-            Console.WriteLine("Total Working Hours of an Employee is:" + totalWorkingHours);
-            //Console.WriteLine("Monthly salary of an Employee in "+company+" is " + totalSalary);
-        }
-        public string toString()
-        {
-            return "Monthly salary of an Employee in " + this.company + " is " + this.totalSalary;
+            public void setTotalEmpWage(int totalSalary)
+            {
+                this.totalSalary = totalSalary;
+            }
+            public string toString()
+            {
+                return "Monthly salary of an Employee in " + this.company + " is " + this.totalSalary;
+            }
         }
 
 
@@ -74,11 +36,7 @@ namespace EmployeeWagecmp
     }
 
 
-
-
-
-
-}
+    }
 
 
    
